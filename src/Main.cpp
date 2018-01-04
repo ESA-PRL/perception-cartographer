@@ -3,8 +3,8 @@
 
 int main(int argc, char** argv)
 {
-  //  cartographer::LocalMap amap;
-   // amap.welcome();
+    // cartographer::LocalMap amap;
+    // amap.welcome();
 
     return 0;
 }
