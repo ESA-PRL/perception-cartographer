@@ -11,6 +11,10 @@ rock_library(cartographer
 rock_executable(cartographer_bin Main.cpp
     DEPS cartographer)
 
+if(NOT "${PCL_LIBRARIES}" STREQUAL "")
+  list(REMOVE_ITEM PCL_LIBRARIES "vtkproj4")
+endif()
+
 target_link_libraries(cartographer
   ${PCL_LIBRARIES}
   opencv_core)
