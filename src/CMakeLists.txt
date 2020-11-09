@@ -6,7 +6,7 @@ add_definitions(${PCL_DEFINITIONS})
 rock_library(cartographer
     SOURCES localMap.cpp globalMap.cpp costMap.cpp
     HEADERS localMap.hpp globalMap.hpp costMap.hpp
-    DEPS_PKGCONFIG opencv)
+    DEPS_PKGCONFIG ${OPENCV_PACKAGE})
 
 rock_executable(cartographer_bin Main.cpp
     DEPS cartographer)

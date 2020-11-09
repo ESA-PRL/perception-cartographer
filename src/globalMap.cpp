@@ -53,8 +53,8 @@ void GlobalMap::realWorldOrientation(cv::Mat relative_map, cv::Mat relative_mask
     cv::Mat transform = cv::getRotationMatrix2D(rot_center,(yaw/3.14159*180.0),1.0);
 
     // apply yaw rotation
-    cv::warpAffine(rotated_map,rotated_map,transform,rotated_map.size(),CV_INTER_LINEAR);
-    cv::warpAffine(rotated_mask_map,rotated_mask_map,transform,rotated_mask_map.size(),CV_INTER_LINEAR);
+    cv::warpAffine(rotated_map,rotated_map,transform,rotated_map.size(),cv::INTER_LINEAR);
+    cv::warpAffine(rotated_mask_map,rotated_mask_map,transform,rotated_mask_map.size(),cv::INTER_LINEAR);
 }
 
 void GlobalMap::addToWorld(float y, float x, float z) // todo clear frame stuff. inversed here because of opencv

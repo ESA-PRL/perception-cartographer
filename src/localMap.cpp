@@ -445,7 +445,7 @@ void LocalMap::detectObstacles(float height_threshold)
     cv::dilate(contour_mask, contour_mask, element, cv::Point( -1, -1 ),
             obstacle_iterations);
     std::vector < std::vector<cv::Point> > contours;
-    findContours(contour_mask, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
+    findContours(contour_mask, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
 
     // prepare variables used to iterate through the single obstacles
     cv::Mat single_contour_mask;
@@ -475,7 +475,7 @@ void LocalMap::detectObstacles(float height_threshold)
     {
         single_contour_mask.setTo(cv::Scalar(0)); // initialize mask
         single_surround_mask.setTo(cv::Scalar(0));
-        cv::drawContours(single_contour_mask, contours, iContour, cv::Scalar(1), CV_FILLED); // fill mask with only one contour
+        cv::drawContours(single_contour_mask, contours, iContour, cv::Scalar(1), cv::FILLED); // fill mask with only one contour
         cv::dilate(single_contour_mask, single_surround_mask, element, cv::Point( -1, -1 ) , obstacle_vicinity_iterations);
         cv::bitwise_xor(single_contour_mask,single_surround_mask, single_surround_mask); // keep original mask
         cv::bitwise_and(height_map_mask,single_contour_mask, single_contour_mask); // remove regions where we do not have heightmap data
